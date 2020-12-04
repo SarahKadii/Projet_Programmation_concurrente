@@ -1,13 +1,15 @@
 #coding:utf-8
 from math import *
 import random
+from threading import Thread
+import time
+
+#************************* Class Producer ********************************
 
 class Producer :
-    def __init__(self):
-        print("Création d'un producteur \n")
-
+#-- Fonction qui génére un nombre aléatoire en 1 et 100 ------------------
     def randomNumber(self) :
         return random.randint(1,100)
-
-p1 = Producer()
-print("Le nb random afficher par le producer 1 est : {}".format(p1.randomNumber()))
+#-- Fonction qui consiste à mettre le thread en pause --------------------
+    def wait(self) :
+        time.sleep(1)
