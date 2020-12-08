@@ -6,6 +6,7 @@ import time
 
 #************************* Class Consumer *****************************
 
+
 class Consumer:
     def __init__(self, rnumber):
         self.number = rnumber
@@ -14,4 +15,6 @@ class Consumer:
         return self.number
 #-- Fonction qui consiste à mettre le thread en pause -----------------
     def wait(self) :
-        time.sleep(1)
+        time.sleep(2)
+
+     
