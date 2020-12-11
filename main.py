@@ -17,9 +17,10 @@ class TProducer(Thread) :
         self.lock = threading.Lock()
         TProducer.cptP += 1
         self.cptP = TProducer.cptP
-
 #------ Ajout du nombre généré dans la mémoire partagée -----------------------------------------------------------
     def run(self) :
+#------ Utilisation de verrous pour éviter qu'un autre thread utilise la mémoire  
+#       en même temps que le thread courant -----------------------------------------------------------------------
         self.lock.acquire()
         prd = Producer()
         listOfData.append(prd.randomNumber())
@@ -60,6 +61,8 @@ class TConsumer(Thread) :
                             quit()
 #---------- Cas où le consommateur consomme la donnée car la liste n'est pas vide ---------------------------------                             
             else:
+#------ Utilisation de verrous pour éviter qu'un autre thread utilise la mémoire  
+#       en même temps que le thread courant -----------------------------------------------------------------------
                 self.lock.acquire()
                 cns = Consumer(listOfData[0])
                 listOfData.pop(0)
@@ -75,9 +78,8 @@ class TConsumer(Thread) :
 if __name__ == "__main__" :
 #-- Initialisation d'une liste vide qui représente la mémoire partagée --------------------------------------------
     listOfData = []
-    count_producers = 6
-    count_consumers = 6
-
+    count_producers = 8
+    count_consumers = 8
 #-- Création et lancement des Threads -----------------------------------------------------------------------------
     for i in range (0, count_consumers - 1) :
         thC = TConsumer()
