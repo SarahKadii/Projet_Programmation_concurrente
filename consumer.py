@@ -13,7 +13,7 @@ class Consumer:
 #-- Fonction qui affiche un nombre pris en paramètres -----------------
     def displayNumber(self):
         return self.number
-#-- Fonction qui consiste à mettre le thread en pause -----------------
+#-- Fonction qui consiste à mettre le thread en pause ------------------
     def wait(self) :
         time.sleep(2)
 
