@@ -8,7 +8,7 @@ import time
 
 
 class Producer :
-#-- Fonction qui génére un nombre aléatoire en 1 et 100 ------------------
+#-- Fonction qui génére un nombre aléatoire en 10 et 99 ------------------
     def randomNumber(self) :
         return random.randint(10,99)
 #-- Fonction qui consiste à mettre le thread en pause --------------------

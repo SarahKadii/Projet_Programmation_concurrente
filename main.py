@@ -25,7 +25,6 @@ class TProducer(Thread) :
         listOfData.append(prd.randomNumber())
         print("*Production de la donnée   : {}  | Liste : {}\n".format(listOfData[len(listOfData) - 1],listOfData))
         prd.wait()
-        self.lock.release()
         
 
 #** Class du thread qui instancie la class Consumer ***************************************************************
